@@ -1,31 +1,24 @@
 <template>
   <div>
     <x-button type="primary">新增</x-button>
-   <swiper :options="swiperOption">
-          <swiper-slide>Slide 1</swiper-slide>
-          <swiper-slide>Slide 2</swiper-slide>
-          <swiper-slide>Slide 3</swiper-slide>
-          <swiper-slide>Slide 4</swiper-slide>
-          <swiper-slide>Slide 5</swiper-slide>
-          <swiper-slide>Slide 6</swiper-slide>
-          <swiper-slide>Slide 7</swiper-slide>
-          <swiper-slide>Slide 8</swiper-slide>
-          <swiper-slide>Slide 9</swiper-slide>
-          <swiper-slide>Slide 10</swiper-slide>
-          <div class="swiper-pagination" slot="pagination"></div>
-          <div class="swiper-button-prev" slot="button-prev"></div>
-          <div class="swiper-button-next" slot="button-next"></div>
-        </swiper>
+    <scope-slot>
+      <div slot-scope="user">
+        <h1 v-for="(item, index) in user.data" :key="index">{{ item }}</h1>
+      </div>
+    </scope-slot>
   </div>
 </template>
 
 <script>
 import dialog from './dialog.vue'
 import { XButton, XTable } from 'vux';
+import ScopeSlot from '@/components/ScopeSlot';
+
 export default {
     components: {
         XButton,
         XTable,
+        ScopeSlot
         // 'v-pagination': pagination
     },
  data() {
