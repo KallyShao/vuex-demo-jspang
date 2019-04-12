@@ -1,44 +1,41 @@
 <template>
   <div>
     <x-button type="primary">新增</x-button>
-    <scope-slot>
+    <!-- <scope-slot>
       <div slot-scope="user">
         <h1 v-for="(item, index) in user.data" :key="index">{{ item }}</h1>
       </div>
-    </scope-slot>
+    </scope-slot> -->
+    <anchor-heading :level="2">
+      <a href="#hello-wrold">Hello world!</a>
+    </anchor-heading>
   </div>
 </template>
 
 <script>
 import dialog from './dialog.vue'
 import { XButton, XTable } from 'vux';
-import ScopeSlot from '@/components/ScopeSlot';
+// import ScopeSlot from '@/components/ScopeSlot';
+import AnchorHeading from './anchor';
 
 export default {
     components: {
         XButton,
         XTable,
-        ScopeSlot
-        // 'v-pagination': pagination
+        // ScopeSlot,
+        AnchorHeading
     },
  data() {
       return {
-        swiperOption: {
-          slidesPerView: 3,
-          spaceBetween: 30,
-          slidesPerGroup: 3,
-          loop: true,
-          loopFillGroupWithBlank: true,
-          pagination: {
-            el: '.swiper-pagination',
-            clickable: true
-          },
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
-          }
-        }
-      }
+      };
+    },
+    render(createElement) {
+      this.arr = Array.apply(null, {length: 10}).map(() => {
+        return createElement('h2', 'hello evrery one');
+      })
+    },
+    mounted() {
+      console.log(this.arr);
     }
 }
 </script>
