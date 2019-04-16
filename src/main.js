@@ -14,10 +14,6 @@ import store from './store';
 
 Vue.config.productionTip = false
 
-// import AnchorHeading from './components/anchor.js';
-// Vue.use(AnchorHeading);
-
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

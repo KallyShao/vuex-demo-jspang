@@ -7,7 +7,7 @@ import { mapState } from 'vuex';
 export default {
   computed:{
     ...mapState({
-      show:state => state.dialog.show
+      show:state => state.show
     })
   },
 
